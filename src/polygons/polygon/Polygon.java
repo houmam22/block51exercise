@@ -6,7 +6,7 @@ import java.awt.*;
 /**
  * Created by Niklas on 2016-01-19.
  */
-public abstract class Polygon extends JComponent{
+public abstract class Polygon extends JComponent implements IPolygon{
     private Point centerPoint;
 
     private Polygon(Point center){

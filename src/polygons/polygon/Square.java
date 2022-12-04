@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Created by Niklas on 2016-01-19.
  */
-public class Square extends Polygon {
+class Square extends Polygon {
     public Square(int x, int y) {
         super(x,y);
     }

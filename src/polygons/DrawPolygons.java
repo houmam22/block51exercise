@@ -1,32 +1,30 @@
 package polygons;
 
-import polygons.polygon.Polygon;
-import polygons.polygon.Rectangle;
-import polygons.polygon.Square;
-import polygons.polygon.Triangle;
+import polygons.polygon.IPolygon;
+import polygons.polygon.PolygonFactory;
 
 import javax.swing.*;
 import java.awt.Graphics;
 import java.util.*;
 
 public class DrawPolygons extends JComponent{
-    private List<Polygon> polygons;
+    private List<IPolygon> polygons;
     private boolean direction = true;
     private int ticker = 0;
 
     public DrawPolygons(){
         polygons = new ArrayList<>(10);
 
-        polygons.add(new Square(50,50));
-        polygons.add(new Triangle(100,100));
-        polygons.add(new Rectangle(50,150));
+        polygons.add(PolygonFactory.makeSquare(50, 50));
+        polygons.add(PolygonFactory.makeTriangle(100, 100));
+        polygons.add(PolygonFactory.makeRectangle(50,150));
 
     }//constructor
 
     private void update(){
         ticker++;
         int value = direction ? 10 : -10;
-        for (Polygon p: polygons){
+        for (IPolygon p: polygons){
             p.updateCenter(p.getCenterPoint().x+value, p.getCenterPoint().y+value);
         }
         if (ticker > 10) {
@@ -38,7 +36,7 @@ public class DrawPolygons extends JComponent{
 
     @Override
     public void paint(Graphics g) {
-        for (Polygon currentPolygon : polygons) {
+        for (IPolygon currentPolygon : polygons) {
             currentPolygon.paint(g);
         }
     }//paint

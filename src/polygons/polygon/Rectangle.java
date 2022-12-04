@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Created by Niklas on 2016-01-19.
  */
-public class Rectangle extends Polygon {
+class Rectangle extends Polygon {
     public Rectangle(int x, int y) {
         super(x,y);
     }
